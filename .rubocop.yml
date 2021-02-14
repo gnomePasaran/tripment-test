@@ -1,0 +1,121 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 2.5
+  TargetRailsVersion: 6.0
+  Exclude:
+    - 'bin/*'
+    - 'Rakefile'
+    - 'vendor/bundle/**/*'
+    - 'db/schema.rb'
+    - 'node_modules/**/*'
+
+Rails:
+  Enabled: true
+
+Style/Documentation:
+  Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+  Exclude:
+    - 'config/application.rb'
+
+Style/FrozenStringLiteralComment:
+   Exclude:
+    - db/migrate/*.rb
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented_relative_to_receiver
+
+Metrics/AbcSize:
+  Max: 20
+
+Metrics/MethodLength:
+  Max: 16
+
+Metrics/CyclomaticComplexity:
+  Max: 8
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*_spec.rb
+    - config/routes.rb
+    - spec/factories/**/*.rb
+    - config/initializers/grid_core.rb
+    - config/environments/*
+    - spec/rails_helper.rb
+
+Layout/LineLength:
+  Max: 120
+  IgnoreCopDirectives: true
+
+RSpec/NestedGroups:
+  Max: 5
+
+RSpec/MultipleExpectations:
+  Exclude:
+    - spec/system/**/*_spec.rb
+    - spec/requests/**/*_spec.rb
+    - spec/controllers/**/*_spec.rb
+
+RSpec/ExampleLength:
+  Exclude:
+    - spec/system/**/*_spec.rb
+    - spec/requests/**/*_spec.rb
+    - spec/controllers/**/*_spec.rb
+
+Naming/FileName:
+  Exclude:
+    - config/puma-production.rb
+
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
+
+Lint/RaiseException:
+  Enabled: true
+
+Lint/StructNewOverride:
+  Enabled: true
+
+RSpec/MessageSpies:
+  Enabled: false
+
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+
+Style/ExponentialNotation:
+  Enabled: true
+
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: true
+
+Style/SlicingWithRange:
+  Enabled: true
+
+Lint/DeprecatedOpenSSLConstant:
+  Enabled: true
+
+Lint/MixedRegexpCaptureTypes:
+  Enabled: true
+
+Style/RedundantRegexpCharacterClass:
+  Enabled: true
+
+Style/RedundantRegexpEscape:
+  Enabled: false
+
+Style/RedundantFetchBlock:
+  Enabled: true
