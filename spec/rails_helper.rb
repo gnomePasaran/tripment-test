@@ -9,7 +9,9 @@ abort('The Rails environment is running in production mode!') if Rails.env.produ
 require 'rspec/rails'
 require 'factory_bot_rails'
 require 'shoulda-matchers'
+require 'vcr'
 
+Dir[File.join(__dir__, 'support', '**', '*.rb')].sort.each { |f| require f }
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -43,7 +45,10 @@ Shoulda::Matchers.configure do |config|
   end
 end
 
+Searchkick.disable_callbacks
+
 RSpec.configure do |config|
+  config.include TestHelpers, type: :request
   config.include FactoryBot::Syntax::Methods
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
@@ -76,4 +81,10 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+end
+
+VCR.configure do |c|
+  c.cassette_library_dir = 'spec/fixtures/vcr'
+  c.hook_into :webmock
+  # c.configure_rspec_metadata!
 end

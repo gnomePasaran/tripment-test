@@ -33,7 +33,7 @@ class DataFetcher
 
   def create_records(data)
     data.each do |name|
-      MedicalProcedure.find_or_create(name: name)
+      MedicalProcedure.find_or_create_by(name: name)
     end
   end
 end

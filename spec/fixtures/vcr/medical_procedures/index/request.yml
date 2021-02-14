@@ -1,0 +1,33 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:9200/medical_procedures_test/_search
+    body:
+      encoding: UTF-8
+      string: '{"query":{"bool":{"should":[{"dis_max":{"queries":[{"bool":{"must":{"bool":{"should":[{"match":{"name.word_start":{"query":"pos","boost":10,"operator":"and","analyzer":"searchkick_word_search"}}},{"match":{"name.word_start":{"query":"pos","boost":1,"operator":"and","analyzer":"searchkick_word_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}}]}},"should":{"match":{"name.analyzed":{"query":"pos","boost":10,"operator":"and","analyzer":"searchkick_word_search"}}}}}]}},{"dis_max":{"queries":[{"bool":{"must":{"bool":{"should":[{"match":{"name.word_middle":{"query":"pos","boost":10,"operator":"and","analyzer":"searchkick_word_search"}}},{"match":{"name.word_middle":{"query":"pos","boost":1,"operator":"and","analyzer":"searchkick_word_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}}]}},"should":{"match":{"name.analyzed":{"query":"pos","boost":10,"operator":"and","analyzer":"searchkick_word_search"}}}}}]}}]}},"timeout":"11s","_source":false,"size":10000}'
+    headers:
+      X-Elastic-Client-Meta:
+      - es=7.11.1,rb=2.6.5,t=7.11.1,fd=1.3.0,nh=1.1
+      User-Agent:
+      - 'elasticsearch-ruby/7.11.1 (RUBY_VERSION: 2.6.5; linux x86_64; Faraday v1.3.0)'
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '301'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"took":13,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":24,"max_score":30.22864,"hits":[{"_index":"medical_procedures_test_20210215003513064","_type":"medical_procedure","_id":"865","_score":30.22864},{"_index":"medical_procedures_test_20210215003513064","_type":"medical_procedure","_id":"871","_score":30.22864},{"_index":"medical_procedures_test_20210215003513064","_type":"medical_procedure","_id":"880","_score":30.22864},{"_index":"medical_procedures_test_20210215003513064","_type":"medical_procedure","_id":"883","_score":30.22864},{"_index":"medical_procedures_test_20210215003513064","_type":"medical_procedure","_id":"874","_score":30.22864},{"_index":"medical_procedures_test_20210215003513064","_type":"medical_procedure","_id":"877","_score":30.22864},{"_index":"medical_procedures_test_20210215003513064","_type":"medical_procedure","_id":"868","_score":30.22864},{"_index":"medical_procedures_test_20210215003513064","_type":"medical_procedure","_id":"889","_score":30.22864},{"_index":"medical_procedures_test_20210215003513064","_type":"medical_procedure","_id":"900","_score":30.22864},{"_index":"medical_procedures_test_20210215003513064","_type":"medical_procedure","_id":"910","_score":30.22864},{"_index":"medical_procedures_test_20210215003513064","_type":"medical_procedure","_id":"886","_score":30.22864},{"_index":"medical_procedures_test_20210215003513064","_type":"medical_procedure","_id":"916","_score":30.22864},{"_index":"medical_procedures_test_20210215003513064","_type":"medical_procedure","_id":"866","_score":8.589821},{"_index":"medical_procedures_test_20210215003513064","_type":"medical_procedure","_id":"872","_score":8.589821},{"_index":"medical_procedures_test_20210215003513064","_type":"medical_procedure","_id":"881","_score":8.589821},{"_index":"medical_procedures_test_20210215003513064","_type":"medical_procedure","_id":"884","_score":8.589821},{"_index":"medical_procedures_test_20210215003513064","_type":"medical_procedure","_id":"875","_score":8.589821},{"_index":"medical_procedures_test_20210215003513064","_type":"medical_procedure","_id":"878","_score":8.589821},{"_index":"medical_procedures_test_20210215003513064","_type":"medical_procedure","_id":"869","_score":8.589821},{"_index":"medical_procedures_test_20210215003513064","_type":"medical_procedure","_id":"890","_score":8.589821},{"_index":"medical_procedures_test_20210215003513064","_type":"medical_procedure","_id":"901","_score":8.589821},{"_index":"medical_procedures_test_20210215003513064","_type":"medical_procedure","_id":"911","_score":8.589821},{"_index":"medical_procedures_test_20210215003513064","_type":"medical_procedure","_id":"887","_score":8.589821},{"_index":"medical_procedures_test_20210215003513064","_type":"medical_procedure","_id":"917","_score":8.589821}]}}'
+  recorded_at: Sun, 14 Feb 2021 22:11:29 GMT
+recorded_with: VCR 6.0.0
